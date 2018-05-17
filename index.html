@@ -8,11 +8,13 @@
 	<title> IoT Oil Lamp </title>
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"></script>
 
 
 </head>
 <body>
 	<header id="showcase">
+		<h1 id="message"></h1>
 		<br>
 		<br>
 		<h1> <b>Welcome to the lighting of IoT Oil Lamp </b></h1>
@@ -22,11 +24,45 @@
 		<input type="button" class="btn btn-info" value="Click here to Light the Oil Lamp" onclick=" relocate_home()">
 
 		<script>
-			function relocate_home()
-			{
-			     location.href = "https://www.youtube.com";
-			} 
-		</script>
+
+			function relocate_home(argument) {
+				client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "clientId");
+
+		    // set callback handlers
+		    client.onConnectionLost = onConnectionLost;
+		    client.onMessageArrived = onMessageArrived;
+
+		    // connect the client
+		    client.connect({onSuccess:onConnect});
+
+
+		    // called when the client connects
+		    function onConnect() {
+		        // Once a connection has been made, make a subscription and send a message.
+		        console.log("onConnect");
+		        client.subscribe("kalana");
+		        message = new Paho.MQTT.Message("Please wait until the confirmation!");
+		        message.destinationName = "kalana";
+		        client.send(message);
+		    }
+
+		    // called when the client loses its connection
+		    function onConnectionLost(responseObject) {
+		        if (responseObject.errorCode !== 0) {
+		            console.log("onConnectionLost:"+responseObject.errorMessage);
+		        }
+		    }
+
+		    // called when a message arrives
+		    function onMessageArrived(message) {
+		        console.log("onMessageArrived:"+message.payloadString);
+		        alert(message.payloadString);
+				document.getElementById("message").innerHTML = message.payloadString;
+		    }
+			}
+					// Create a client instance
+		    
+				</script>
 	</header>   
 
 </body>
