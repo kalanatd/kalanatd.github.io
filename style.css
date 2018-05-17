@@ -12,12 +12,12 @@ body{
 }
 
 #showcase{
-	background-image: url('https://www.pexels.com/photo/asphalt-dark-dawn-endless-531321.jpg');
+	background-image: url('black-coffee-cellphone-coffee-860379.jpg');
 	height :100vh;
 	background-size: cover;
 	background-position: center;
 	display: flex;
-	
+	flex-direction: column; 
 	justify-content: center;
 	align-items: center;
 	padding:0 20px;
