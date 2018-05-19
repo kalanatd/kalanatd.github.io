@@ -5,14 +5,14 @@
 body{
 	margin:0;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	font-size: 22px;
-	color:#F2F3F4;
+	font-size: 19px;
+	color: #F2F3F4 ;
 	line-height: 1.6;
 
 }
 
 #showcase{
-	background-image: url('candle_glare_light_117920_6000x4000.jpg');
+	background-image: url('blur2 (1).jpg');
 	height :100vh;
 	background-size: cover;
 	background-position: center;

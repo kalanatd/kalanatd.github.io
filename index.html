@@ -41,9 +41,10 @@
 		        // Once a connection has been made, make a subscription and send a message.
 		        console.log("onConnect");
 		        client.subscribe("kalana");
-		        message = new Paho.MQTT.Message("The Lamp will be lit in a moment!");
+		        message = new Paho.MQTT.Message("Please wait until the confirmation!");
 		        message.destinationName = "kalana";
 		        client.send(message);
+		        
 		    }
 
 		    // called when the client loses its connection
@@ -58,6 +59,7 @@
 		        console.log("onMessageArrived:"+message.payloadString);
 		        alert(message.payloadString);
 				document.getElementById("message").innerHTML = message.payloadString;
+
 		    }
 			}
 					// Create a client instance
