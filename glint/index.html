@@ -115,7 +115,7 @@
 		<script>
 
 			function relocate_home(argument) {
-				client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "clientId");
+				client = new Paho.MQTT.Client("wss://iot.eclipse.org:443/ws", "clientId");
 
 		    // set callback handlers
 		    client.onConnectionLost = onConnectionLost;
