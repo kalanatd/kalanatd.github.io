@@ -129,9 +129,9 @@
 		    function onConnect() {
 		        // Once a connection has been made, make a subscription and send a message.
 		        console.log("onConnect");
-		        client.subscribe("kalana");
-		        message = new Paho.MQTT.Message("Please wait until the confirmation!");
-		        message.destinationName = "kalana";
+		        client.subscribe("group19_fire_detect");
+		        message = new Paho.MQTT.Message("3");
+		        message.destinationName = "group19_lamp_select";
 		        client.send(message);
 		    }
 
