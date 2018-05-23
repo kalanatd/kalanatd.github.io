@@ -31,13 +31,24 @@
 			<script language="javascript">
 			function check(form)/*function to check userid & password*/
 			{
-			 /*the following code checkes whether the entered userid and password are matching*/
-			 if((form.userid.value == "u1" && form.pswrd.value == "p1") || (form.userid.value == "u2" && form.pswrd.value == "p2") || (form.userid.value == "u3" && form.pswrd.value == "p3") || (form.userid.value == "u4" && form.pswrd.value == "p4"))
+			
+			 if(form.userid.value == "u1" && form.pswrd.value == "p1")
 			  {
-			    window.open('glint/index.html')/*opens the target page while Id & password matches*/
+			    window.open('glint/index_guest1.html')/*opens the target page while Id & password matches*/
 			  }
+
+			 else if(form.userid.value == "u2" && form.pswrd.value == "p2")
+			  {
+			    window.open('glint/index_guest2.html')/*opens the target page while Id & password matches*/
+			  }
+
+			 else if(form.userid.value == "u3" && form.pswrd.value == "p3")
+			  {
+			    window.open('glint/index_guest3.html')/*opens the target page while Id & password matches*/
+			  }
+
 			 else
-			 {
+			  {
 			   alert("Error Password or Username")/*displays error message*/
 			  }
 			}
